@@ -3,23 +3,13 @@ package br.com.projeto.dao;
 import br.com.projeto.Resources.ConnectionFactory;
 import br.com.projeto.model.Fornecedores;
 import br.com.projeto.model.Produtos;
-import br.com.projeto.view.FrmProdutos;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  * Classe criada para

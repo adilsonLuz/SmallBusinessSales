@@ -105,13 +105,13 @@ public class VendasDAO {
                 lista.add(obj);
 
             }
-            return lista;
-
+            
+                return lista;
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Ops, aconteceu o erro " + e);
             return null;
         }
-
     }
     
     //Metodo que calcula o total de vendas por data
