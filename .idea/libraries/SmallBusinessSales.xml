@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="SmallBusinessSales">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/SmallBusinessSales/dist/SmallBusinessSales.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
