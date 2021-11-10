@@ -80,7 +80,7 @@ Nós usamos [git](https://git-scm.com/) para controle de versão. Para as versõ
 
 Mencione todos aqueles que ajudaram a levantar o projeto desde o seu início
 
-* **Adilson Silva Luz** - *Trabalho Inicial* - [AdisonLuz](https://github.com/adilsonLuz)
+* **Adilson da Silva Luz** - *Projeto e desenvolvimento* - [AdisonLuz](https://github.com/adilsonLuz)
 * **Davi de Souza Silva** - *Documentação* - [PisomD](https://github.com/PisomD)
 * **Alesandro de Souza da Silva** - *Documentação/Promação* - [Aless-250](https://github.com/aless-250)
 
