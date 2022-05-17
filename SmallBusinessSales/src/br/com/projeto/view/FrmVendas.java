@@ -495,6 +495,10 @@ public class FrmVendas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        
+        
+        this.setExtendedState(this.MAXIMIZED_BOTH);
+        
         // Carrega data atual do sistema
         Date agora = new Date();
 
@@ -533,7 +537,6 @@ public class FrmVendas extends javax.swing.JFrame {
 
     private void btPesquisarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btPesquisarClienteActionPerformed
         //Botão que pesquisa um cliente por cpf
-        Clientes obj = new Clientes();
         ClientesDAO dao = new ClientesDAO();
 
         obj = dao.consultarPorCpf(ftxtCpf.getText());

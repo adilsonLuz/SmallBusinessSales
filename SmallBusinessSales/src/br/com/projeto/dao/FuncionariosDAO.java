@@ -2,6 +2,7 @@ package br.com.projeto.dao;
 
 import br.com.projeto.Resources.ConnectionFactory;
 import br.com.projeto.model.Funcionarios;
+import br.com.projeto.view.FrmFuncionarios;
 import br.com.projeto.view.FrmLogin;
 import br.com.projeto.view.FrmMenu;
 import java.sql.Connection;
@@ -283,12 +284,14 @@ public class FuncionariosDAO {
                 else if (rs.getString("nivel_acesso").equals("Usuario")) {
                     JOptionPane.showMessageDialog(null, "Acesso Permitido", "SEJA BEM VINDO AO SISTEMA",
                             JOptionPane.INFORMATION_MESSAGE, icon);
-                    FrmMenu tela = new FrmMenu();                    
+                    FrmMenu tela = new FrmMenu();       
+                    FrmFuncionarios telaFunc =new FrmFuncionarios();
                     tela.usuarioLogado = rs.getString("nome");                   
                     
                     //Desabilitar os menus
                     tela.menu_posicao.setEnabled(false);
                     tela.menu_controleVenda.setVisible(false);
+                    tela.menu_ConsFunc.setEnabled(false);
 
                     tela.setVisible(true);
                 }

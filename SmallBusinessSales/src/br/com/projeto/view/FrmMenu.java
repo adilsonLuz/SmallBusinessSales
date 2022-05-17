@@ -37,7 +37,7 @@ public class FrmMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        ImageIcon icon = new ImageIcon(getClass().getResource("/imagens/fundo.jpg"));
+        ImageIcon icon = new ImageIcon(getClass().getResource("/imagens/caixa.png"));
 
         Image image = icon.getImage();
         panelDesktop = new javax.swing.JDesktopPane(){
@@ -57,10 +57,10 @@ public class FrmMenu extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         mFuncionarios = new javax.swing.JMenu();
         jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        menu_ConsFunc = new javax.swing.JMenuItem();
         mFornecedores = new javax.swing.JMenu();
         jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        menu_ConsForn = new javax.swing.JMenuItem();
         mProdutos = new javax.swing.JMenu();
         jMenuItem12 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
@@ -171,14 +171,14 @@ public class FrmMenu extends javax.swing.JFrame {
         });
         mFuncionarios.add(jMenuItem10);
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem2.setText("Consulta de Funcionários");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        menu_ConsFunc.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
+        menu_ConsFunc.setText("Consulta de Funcionários");
+        menu_ConsFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                menu_ConsFuncActionPerformed(evt);
             }
         });
-        mFuncionarios.add(jMenuItem2);
+        mFuncionarios.add(menu_ConsFunc);
 
         jMenuBar1.add(mFuncionarios);
 
@@ -194,14 +194,14 @@ public class FrmMenu extends javax.swing.JFrame {
         });
         mFornecedores.add(jMenuItem11);
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem3.setText("Consulta de Fornecedores");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        menu_ConsForn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
+        menu_ConsForn.setText("Consulta de Fornecedores");
+        menu_ConsForn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                menu_ConsFornActionPerformed(evt);
             }
         });
-        mFornecedores.add(jMenuItem3);
+        mFornecedores.add(menu_ConsForn);
 
         jMenuBar1.add(mFornecedores);
 
@@ -367,19 +367,19 @@ public class FrmMenu extends javax.swing.JFrame {
         tela.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void menu_ConsFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_ConsFuncActionPerformed
         //Menu consulta de Funcionarios
         FrmFuncionarios tela = new FrmFuncionarios();
         tela.jTabbedPane1.setSelectedIndex(1);
         tela.setVisible(true);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_menu_ConsFuncActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+    private void menu_ConsFornActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_ConsFornActionPerformed
         //Menu consulta de Fornecedores
         FrmFornecedores tela = new FrmFornecedores();
         tela.jTabbedPane1.setSelectedIndex(1);
         tela.setVisible(true);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
+    }//GEN-LAST:event_menu_ConsFornActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // menu abrir PDV
@@ -473,8 +473,6 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
@@ -490,6 +488,8 @@ public class FrmMenu extends javax.swing.JFrame {
     private javax.swing.JMenu mProdutos;
     private javax.swing.JMenu mSair;
     private javax.swing.JMenu mVendas;
+    private javax.swing.JMenuItem menu_ConsForn;
+    public javax.swing.JMenuItem menu_ConsFunc;
     public javax.swing.JMenuItem menu_controleVenda;
     public javax.swing.JMenuItem menu_posicao;
     private javax.swing.JPanel panelBarraStatus;

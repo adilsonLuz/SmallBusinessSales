@@ -123,6 +123,8 @@ public class FrmProdutos extends javax.swing.JFrame {
         txtPrecoCompra = new javax.swing.JTextField();
         txtPrecoVenda = new javax.swing.JTextField();
         txtPercLucro = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         panelConsulta = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         txtConsCod = new javax.swing.JTextField();
@@ -143,6 +145,7 @@ public class FrmProdutos extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("TELA PRODUTOS");
         setIconImages(null);
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowActivated(java.awt.event.WindowEvent evt) {
                 formWindowActivated(evt);
@@ -286,6 +289,10 @@ public class FrmProdutos extends javax.swing.JFrame {
             }
         });
 
+        jLabel13.setText("Data");
+
+        jLabel17.setText("Buscar Foto");
+
         javax.swing.GroupLayout panelDadosLayout = new javax.swing.GroupLayout(panelDados);
         panelDados.setLayout(panelDadosLayout);
         panelDadosLayout.setHorizontalGroup(
@@ -299,13 +306,14 @@ public class FrmProdutos extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addGap(18, 18, 18)
                         .addGroup(panelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelDadosLayout.createSequentialGroup()
-                                .addComponent(jLabel5)
+                                .addComponent(jLabel13)
                                 .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(panelDadosLayout.createSequentialGroup()
-                                .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtData, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE))))
+                            .addComponent(txtData, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)))
                     .addGroup(panelDadosLayout.createSequentialGroup()
                         .addGroup(panelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
@@ -349,7 +357,9 @@ public class FrmProdutos extends javax.swing.JFrame {
                                             .addComponent(txtEstoqueMax, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txtPrecoVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addGap(49, 49, 49)
-                                .addComponent(btPesqCaminho))
+                                .addGroup(panelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btPesqCaminho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addComponent(jLabel9)
                             .addComponent(txtPrecoCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -362,7 +372,8 @@ public class FrmProdutos extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jLabel5))
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel13))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelDadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -408,12 +419,14 @@ public class FrmProdutos extends javax.swing.JFrame {
                                             .addComponent(cbFornecedores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txtPercLucro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                             .addComponent(jLabel10))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtCodBarras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDadosLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel17)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btPesqCaminho))
                     .addComponent(lbImagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -445,7 +458,7 @@ public class FrmProdutos extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Status", "Produto", "Descrição", "Qtd Estoque", "Estoque Min.", "Estoque Max.", "Fornecedor", "Preço Compra", "Preço Venda", "Perc. Lucro", "Cod. Barras", "Data Cad.", "Imagem"
+                "", "", "Produto", "", "Estoque", "Min.", "Max.", "", "", "Preço Venda", "", "Cod. Barras", "", ""
             }
         ) {
             Class[] types = new Class [] {
@@ -462,6 +475,36 @@ public class FrmProdutos extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(tabelaProdutos);
+        if (tabelaProdutos.getColumnModel().getColumnCount() > 0) {
+            tabelaProdutos.getColumnModel().getColumn(0).setResizable(false);
+            tabelaProdutos.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tabelaProdutos.getColumnModel().getColumn(1).setResizable(false);
+            tabelaProdutos.getColumnModel().getColumn(1).setPreferredWidth(0);
+            tabelaProdutos.getColumnModel().getColumn(2).setResizable(false);
+            tabelaProdutos.getColumnModel().getColumn(2).setPreferredWidth(220);
+            tabelaProdutos.getColumnModel().getColumn(3).setResizable(false);
+            tabelaProdutos.getColumnModel().getColumn(3).setPreferredWidth(0);
+            tabelaProdutos.getColumnModel().getColumn(4).setResizable(false);
+            tabelaProdutos.getColumnModel().getColumn(4).setPreferredWidth(40);
+            tabelaProdutos.getColumnModel().getColumn(5).setResizable(false);
+            tabelaProdutos.getColumnModel().getColumn(5).setPreferredWidth(40);
+            tabelaProdutos.getColumnModel().getColumn(6).setResizable(false);
+            tabelaProdutos.getColumnModel().getColumn(6).setPreferredWidth(40);
+            tabelaProdutos.getColumnModel().getColumn(7).setResizable(false);
+            tabelaProdutos.getColumnModel().getColumn(7).setPreferredWidth(0);
+            tabelaProdutos.getColumnModel().getColumn(8).setResizable(false);
+            tabelaProdutos.getColumnModel().getColumn(8).setPreferredWidth(0);
+            tabelaProdutos.getColumnModel().getColumn(9).setResizable(false);
+            tabelaProdutos.getColumnModel().getColumn(9).setPreferredWidth(70);
+            tabelaProdutos.getColumnModel().getColumn(10).setResizable(false);
+            tabelaProdutos.getColumnModel().getColumn(10).setPreferredWidth(0);
+            tabelaProdutos.getColumnModel().getColumn(11).setResizable(false);
+            tabelaProdutos.getColumnModel().getColumn(11).setPreferredWidth(100);
+            tabelaProdutos.getColumnModel().getColumn(12).setResizable(false);
+            tabelaProdutos.getColumnModel().getColumn(12).setPreferredWidth(0);
+            tabelaProdutos.getColumnModel().getColumn(13).setResizable(false);
+            tabelaProdutos.getColumnModel().getColumn(13).setPreferredWidth(0);
+        }
 
         jLabel16.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLabel16.setText("Produto:");
@@ -509,7 +552,7 @@ public class FrmProdutos extends javax.swing.JFrame {
                     .addComponent(txtConsProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btConsnome))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 326, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -646,7 +689,7 @@ public class FrmProdutos extends javax.swing.JFrame {
 
         try {
             //gerando cópdigo de Barras
-            Barcode barcode = BarcodeFactory.createEAN13(txtCodBarras.getText());
+            Barcode barcode = BarcodeFactory.createEAN128(txtCodBarras.getText());
             //imprimindo codigo de barras
             PrinterJob printerJob = PrinterJob.getPrinterJob();
             printerJob.setPrintable(barcode);
@@ -1156,9 +1199,11 @@ public class FrmProdutos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
