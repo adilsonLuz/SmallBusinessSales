@@ -278,7 +278,14 @@ public class FrmLogin extends javax.swing.JFrame {
         tela.setVisible(true);        
         
         tela.tab_consulta.setEnabled(false);
-        
+        tela.btPesqNome.setEnabled(false);
+        tela.btEditar.setEnabled(false);
+        tela.btExcluir.setEnabled(false);
+        tela.cbCargo.setSelectedIndex(5);
+        tela.cbNivelAcesso.setSelectedIndex(2);
+        tela.cbCargo.setEnabled(false);
+        tela.cbNivelAcesso.setEnabled(false);
+
     }//GEN-LAST:event_bt_CadastroActionPerformed
 
     /**

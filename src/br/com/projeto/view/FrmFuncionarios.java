@@ -294,6 +294,11 @@ public class FrmFuncionarios extends javax.swing.JFrame {
 
         cbCargo.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         cbCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Diretor", "Gerente", "Supervisor", "Encarregado", "Caixa" }));
+        cbCargo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbCargoActionPerformed(evt);
+            }
+        });
 
         btBuscaCep.setText("Buscar");
         btBuscaCep.addActionListener(new java.awt.event.ActionListener() {
@@ -892,6 +897,10 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodActionPerformed
 
+    private void cbCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbCargoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbCargoActionPerformed
+
     private void iconeTela() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagens/IconFuncionarios.png")));
     }
@@ -938,13 +947,13 @@ public class FrmFuncionarios extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBuscaCep;
     private javax.swing.JButton btConsNome;
-    private javax.swing.JButton btEditar;
-    private javax.swing.JButton btExcluir;
+    public javax.swing.JButton btEditar;
+    public javax.swing.JButton btExcluir;
     private javax.swing.JButton btNovo;
-    private javax.swing.JButton btPesqNome;
+    public javax.swing.JButton btPesqNome;
     private javax.swing.JButton btSalvar;
-    private javax.swing.JComboBox<String> cbCargo;
-    private javax.swing.JComboBox<String> cbNivelAcesso;
+    public javax.swing.JComboBox<String> cbCargo;
+    public javax.swing.JComboBox<String> cbNivelAcesso;
     private javax.swing.JComboBox<String> cbUf;
     private javax.swing.JFormattedTextField ftxtCel;
     private javax.swing.JFormattedTextField ftxtCep;
