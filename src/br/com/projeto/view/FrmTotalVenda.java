@@ -46,7 +46,7 @@ public class FrmTotalVenda extends javax.swing.JFrame {
         txtData = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Tela Total de Vendas");
+        setTitle("Tela Fechamento de Caixa");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
@@ -54,7 +54,7 @@ public class FrmTotalVenda extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Histórico de Vendas");
+        jLabel1.setText("Fechamento de caixa");
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

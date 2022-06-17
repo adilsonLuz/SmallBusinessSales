@@ -3,7 +3,7 @@
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
-    <Property name="title" type="java.lang.String" value="Tela Total de Vendas"/>
+    <Property name="title" type="java.lang.String" value="Tela Fechamento de Caixa"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
@@ -82,7 +82,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Hist&#xf3;rico de Vendas"/>
+            <Property name="text" type="java.lang.String" value="Fechamento de caixa"/>
             <Property name="verticalAlignment" type="int" value="1"/>
           </Properties>
         </Component>

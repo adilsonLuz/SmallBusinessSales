@@ -56,8 +56,8 @@ public interface AtendeCliente {
      * @param idPlpCliente
      * @return
      *     returns java.lang.Long
-     * @throws AutenticacaoException
      * @throws SigepClienteException
+     * @throws AutenticacaoException
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -92,8 +92,8 @@ public interface AtendeCliente {
      * @param servico
      * @return
      *     returns boolean
-     * @throws AutenticacaoException
      * @throws SigepClienteException
+     * @throws AutenticacaoException
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -141,8 +141,8 @@ public interface AtendeCliente {
      * @return
      *     returns java.lang.String
      * @throws Exception_Exception
-     * @throws AutenticacaoException
      * @throws SigepClienteException
+     * @throws AutenticacaoException
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -208,8 +208,8 @@ public interface AtendeCliente {
      * @return
      *     returns java.lang.Boolean
      * @throws Exception_Exception
-     * @throws AutenticacaoException
      * @throws SigepClienteException
+     * @throws AutenticacaoException
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -269,8 +269,8 @@ public interface AtendeCliente {
      * @param usuario
      * @return
      *     returns javax.xml.datatype.XMLGregorianCalendar
-     * @throws AutenticacaoException
      * @throws SigepClienteException
+     * @throws AutenticacaoException
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -296,8 +296,8 @@ public interface AtendeCliente {
      * @param cepDestino
      * @return
      *     returns java.lang.String
-     * @throws AutenticacaoException
      * @throws SigepClienteException
+     * @throws AutenticacaoException
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -329,8 +329,8 @@ public interface AtendeCliente {
      * @param idPlpCliente
      * @return
      *     returns java.lang.Long
-     * @throws AutenticacaoException
      * @throws SigepClienteException
+     * @throws AutenticacaoException
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -359,8 +359,8 @@ public interface AtendeCliente {
      * @param usuario
      * @return
      *     returns java.util.List<java.lang.Integer>
-     * @throws AutenticacaoException
      * @throws SigepClienteException
+     * @throws AutenticacaoException
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -398,8 +398,8 @@ public interface AtendeCliente {
      * @param idPlp
      * @return
      *     returns boolean
-     * @throws AutenticacaoException
      * @throws SigepClienteException
+     * @throws AutenticacaoException
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -463,8 +463,8 @@ public interface AtendeCliente {
      * @param usuario
      * @return
      *     returns java.lang.Boolean
-     * @throws AutenticacaoException
      * @throws SigepClienteException
+     * @throws AutenticacaoException
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -540,8 +540,8 @@ public interface AtendeCliente {
      * @param usuario
      * @return
      *     returns java.lang.String
-     * @throws AutenticacaoException
      * @throws SigepClienteException
+     * @throws AutenticacaoException
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -566,8 +566,8 @@ public interface AtendeCliente {
      * @param usuario
      * @return
      *     returns br.com.correios.bsb.sigep.master.bean.cliente.StatusCartao
-     * @throws AutenticacaoException
      * @throws SigepClienteException
+     * @throws AutenticacaoException
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -592,8 +592,8 @@ public interface AtendeCliente {
      * @param cepDestino
      * @return
      *     returns java.lang.String
-     * @throws AutenticacaoException
      * @throws SigepClienteException
+     * @throws AutenticacaoException
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -642,8 +642,8 @@ public interface AtendeCliente {
      * @return
      *     returns br.com.correios.bsb.sigep.master.bean.cliente.ValePostal
      * @throws Exception_Exception
-     * @throws AutenticacaoException
      * @throws SigepClienteException
+     * @throws AutenticacaoException
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -690,8 +690,8 @@ public interface AtendeCliente {
      * @param coleta
      * @return
      *     returns java.lang.Boolean
-     * @throws AutenticacaoException
      * @throws SigepClienteException
+     * @throws AutenticacaoException
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -779,8 +779,8 @@ public interface AtendeCliente {
      * @param usuario
      * @return
      *     returns br.com.correios.bsb.sigep.master.bean.cliente.RetornoCancelamento
-     * @throws AutenticacaoException
      * @throws SigepClienteException
+     * @throws AutenticacaoException
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -810,8 +810,8 @@ public interface AtendeCliente {
      * @param idPlp
      * @return
      *     returns java.lang.String
-     * @throws AutenticacaoException
      * @throws SigepClienteException
+     * @throws AutenticacaoException
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -841,8 +841,8 @@ public interface AtendeCliente {
      * @param usuario
      * @return
      *     returns br.com.correios.bsb.sigep.master.bean.cliente.ContratoERP
-     * @throws AutenticacaoException
      * @throws SigepClienteException
+     * @throws AutenticacaoException
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -870,8 +870,8 @@ public interface AtendeCliente {
      * @param identificador
      * @return
      *     returns java.lang.String
-     * @throws AutenticacaoException
      * @throws SigepClienteException
+     * @throws AutenticacaoException
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -900,8 +900,8 @@ public interface AtendeCliente {
      * @param usuario
      * @return
      *     returns java.lang.String
-     * @throws AutenticacaoException
      * @throws SigepClienteException
+     * @throws AutenticacaoException
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -928,8 +928,8 @@ public interface AtendeCliente {
      * @param coleta
      * @return
      *     returns java.lang.Boolean
-     * @throws AutenticacaoException
      * @throws SigepClienteException
+     * @throws AutenticacaoException
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -961,8 +961,8 @@ public interface AtendeCliente {
      * @param idContrato
      * @return
      *     returns br.com.correios.bsb.sigep.master.bean.cliente.ClienteERP
-     * @throws AutenticacaoException
      * @throws SigepClienteException
+     * @throws AutenticacaoException
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -990,9 +990,9 @@ public interface AtendeCliente {
      * @param dataInicio
      * @return
      *     returns java.lang.String
-     * @throws ErroMontagemRelatorio_Exception
-     * @throws AutenticacaoException
      * @throws SigepClienteException
+     * @throws AutenticacaoException
+     * @throws ErroMontagemRelatorio_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -1022,8 +1022,8 @@ public interface AtendeCliente {
      * @param usuario
      * @return
      *     returns java.lang.String
-     * @throws AutenticacaoException
      * @throws SigepClienteException
+     * @throws AutenticacaoException
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -1049,8 +1049,8 @@ public interface AtendeCliente {
      * @param idContrato
      * @return
      *     returns java.util.List<br.com.correios.bsb.sigep.master.bean.cliente.ServicoERP>
-     * @throws AutenticacaoException
      * @throws SigepClienteException
+     * @throws AutenticacaoException
      */
     @WebMethod
     @WebResult(targetNamespace = "")
