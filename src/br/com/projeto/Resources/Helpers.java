@@ -5,30 +5,24 @@
  */
 package br.com.projeto.Resources;
 
-import br.com.correios.bsb.sigep.master.bean.cliente.EnderecoERP;
-import br.com.correios.bsb.sigep.master.bean.cliente.SQLException_Exception;
-import br.com.correios.bsb.sigep.master.bean.cliente.SigepClienteException;
 import br.com.projeto.view.FrmProdutos;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Component;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import br.com.projeto.view.FrmClientes;
-import javax.swing.JOptionPane;
 
 /**
- * Classe criada para
- *
+ * Classe criada como ajudante de metodos repetitivos *
  * @author Adilson Luz
  * @since Classe Criada em 03/07/2021, 23:03:25
  */
 public class Helpers {
 
+    //Cria novo objeto para telas
     FrmProdutos t = new FrmProdutos();
     FrmClientes c = new FrmClientes();
 
@@ -58,9 +52,10 @@ public class Helpers {
         }
     }
 
+    //Metodo que faz conversão de data e hora para o padrão brasileiro
     public String dataHoraBr() {
         String date;
-        // data/hora atual
+        // data/hora atual 
         LocalDateTime agora = LocalDateTime.now();
 
         // formatar a data
@@ -76,6 +71,7 @@ public class Helpers {
         return date;
     }
 
+    //Metodo que faz conversão de data e hora para o padrão americano
     public String dataHoraEUA() {
         String date;
         // data/hora atual
@@ -94,6 +90,7 @@ public class Helpers {
         return date;
     }
 
+    //Metodo que gera um código de barras valido
     public String gerarCodBar(String codBarras) {
 
         int[] numeros = codBarras.chars().map(Character::getNumericValue).toArray();

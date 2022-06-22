@@ -27,7 +27,9 @@ public class Clientes {
     //Método construtor vazio
     public Clientes(){
         
-    }
+    }//fim do metodo
+    
+    
     //Método construtor
     public Clientes(int id, String nome, String rg, String cpf, String email, 
                     String telefone, String celular, String cep, String endereco,
@@ -46,7 +48,7 @@ public class Clientes {
         this.bairro = bairro;
         this.cidade = cidade;
         this.uf = uf;
-    }
+    }//fim do metodo
        
             
     //Getters & Setters

@@ -8,7 +8,6 @@ package br.com.projeto.view;
 import java.awt.Color;
 import java.awt.Toolkit;
 
-
 /**
  *
  * @author Adilson
@@ -22,6 +21,10 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
         initComponents();
         this.getContentPane().setBackground(Color.WHITE);
         iconeTela();
+        txtCliente.setEnabled(false);
+        txtData.setEnabled(false);
+        txtObs.setEnabled(false);
+        txtTotalVenda.setEnabled(false);
     }
 
     /**
@@ -156,15 +159,30 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Produto", "Qtd Comprada", "Preço", "SubTotal"
+                "Produto", "Quantidade", "Preço", "SubTotal"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tabelaItensVendidos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tabelaItensVendidosMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tabelaItensVendidos);
+        if (tabelaItensVendidos.getColumnModel().getColumnCount() > 0) {
+            tabelaItensVendidos.getColumnModel().getColumn(0).setResizable(false);
+            tabelaItensVendidos.getColumnModel().getColumn(0).setPreferredWidth(500);
+            tabelaItensVendidos.getColumnModel().getColumn(1).setResizable(false);
+            tabelaItensVendidos.getColumnModel().getColumn(2).setResizable(false);
+            tabelaItensVendidos.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -196,13 +214,13 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
 
     private void tabelaItensVendidosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaItensVendidosMouseClicked
         // Clicar em uma venda
-        
+
     }//GEN-LAST:event_tabelaItensVendidosMouseClicked
 
     private void iconeTela() {
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagens/IconHistorico.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagens/livro.png")));
     }
-
+    
     /**
      * @param args the command line arguments
      */
@@ -231,14 +249,13 @@ public class FrmDetalheVenda extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
 
-        /* Create and display the form */
+         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FrmDetalheVenda().setVisible(true);
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

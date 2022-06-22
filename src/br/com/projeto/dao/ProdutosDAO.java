@@ -12,7 +12,8 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
- * Classe criada para
+ * Classe criada para instanciar os metodos que controlam 
+ * as funções de produtos no banco de dados do sistema
  *
  * @author Adilson Luz
  * @since Classe Criada em 05/07/2021, 19:01:29
@@ -28,13 +29,13 @@ public class ProdutosDAO {
     //Método para cadastrar Produtos
     public void cadastrarProdutos(Produtos obj) {
         try {
-            //1 Passo - criar comando SQL
+            //Criar comando SQL
             String sql = "INSERT INTO tb_produtos (status, data_cadastro, produto, qtd_estoque, "
                     + "descricao, estoque_minimo, estoque_maximo, preco_compra, preco_venda, "
                     + "fator, cod_barras, imagem, for_id)"
                     + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-            //2 Passo - Conectar no banco da dados e organizar o comando SQL
+            //Conectar no banco da dados e organizar o comando SQL
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             stmt.setString(1, obj.getStatus());
@@ -51,7 +52,7 @@ public class ProdutosDAO {
             stmt.setBytes(12, obj.getImagem());
             stmt.setInt(13, obj.getFornecedor().getId());
 
-            //3 Passo - Executar o comando SQL
+            //Executar o comando SQL
             stmt.execute();
             stmt.close();
 
@@ -65,12 +66,12 @@ public class ProdutosDAO {
     //Método para alterar Produtos
     public void alterarProdutos(Produtos obj) {
         try {
-            //1 Passo - criar comando SQL
+            //Criar comando SQL
             String sql = "UPDATE tb_produtos SET status = ?, data_cadastro = ?, produto = ?, qtd_estoque = ?,"
                     + "descricao = ?, estoque_minimo = ?, estoque_maximo = ?, preco_compra = ?, preco_venda = ?,"
                     + "fator = ?, cod_barras = ?, imagem = ?, for_id = ? WHERE id = ?";
 
-            //2 Passo - Conectar no banco da dados e organizar o comando SQL
+            //Conectar no banco da dados e organizar o comando SQL
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             stmt.setString(1, obj.getStatus());
@@ -88,7 +89,7 @@ public class ProdutosDAO {
             stmt.setInt(13, obj.getFornecedor().getId());
             stmt.setInt(14, obj.getId());
 
-            //3 Passo - Executar o comando SQL
+            //Executar o comando SQL
             stmt.execute();
             stmt.close();
 
@@ -102,15 +103,15 @@ public class ProdutosDAO {
     //Método para excluir Produtos
     public void excluirProdutos(Produtos obj) {
         try {
-            //1 Passo - criar comando SQL
+            //Criar comando SQL
             String sql = "DELETE FROM tb_produtos WHERE id = ?";
 
-            //2 Passo - Conectar no banco da dados e organizar o comando SQL
+            //Conectar no banco da dados e organizar o comando SQL
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             stmt.setInt(1, obj.getId());
 
-            //3 Passo - Executar o comando SQL
+            //Executar o comando SQL
             stmt.execute();
             stmt.close();
 
@@ -124,10 +125,10 @@ public class ProdutosDAO {
     //Método que lista todos os Produtos
     public List<Produtos> listarProdutos() {
         try {
-            //1 Passo criar a lista
+            //Criar a lista
             List<Produtos> lista = new ArrayList<>();
 
-            //2 Passo - Criar o SQL, organizar e executar
+            //Criar o SQL, organizar e executar
             String sql = "SELECT p.id, p.status, DATE_FORMAT(p.data_cadastro,'%d/%m/%Y') AS data, p.produto, p.qtd_estoque, p.descricao, "
                     + "p.estoque_minimo, p.estoque_maximo, p.preco_compra, p.preco_venda, p.fator, "
                     + "p.cod_barras, p.imagem, f.nome FROM tb_produtos AS p INNER JOIN tb_fornecedores AS f ON (p.for_id = f.id)";
@@ -167,12 +168,12 @@ public class ProdutosDAO {
             return null;
         }
 
-    }
+    }//fim do metodo
 
-    //Método consultar Produtos por nome
+    //Método consultar Produtos por codigo de barras
     public Produtos consultarProdutosPorCodBarras(String codBarra) {
         try {
-            //1 Passo - Criar o SQL, organizar e executar
+            //Criar o SQL, organizar e executar
             String sql = "SELECT p.id, p.status, DATE_FORMAT(p.data_cadastro,'%d/%m/%Y') AS data, p.produto, p.qtd_estoque, p.descricao, "
                     + "p.estoque_minimo, p.estoque_maximo, p.preco_compra, p.preco_venda, p.fator, "
                     + "p.cod_barras, p.imagem, f.nome FROM tb_produtos AS p INNER JOIN tb_fornecedores AS f ON (p.for_id = f.id)"
@@ -213,15 +214,15 @@ public class ProdutosDAO {
             JOptionPane.showMessageDialog(null, "Produto não encontrado");
             return null;
         }
-    }
+    }//fim do metodo
 
-    //Método que busca Produtos por nome
+    //Método que busca Produtos por codigo de barras
     public List<Produtos> buscarProdutosPorCodBarras(String codBarras) {
         try {
-            //1 Passo criar a lista
+            //Criar a lista
             List<Produtos> lista = new ArrayList<>();
 
-            //2 Passo - Criar o SQL, organizar e executar
+            //Criar o SQL, organizar e executar
             String sql = "SELECT p.id, p.status, DATE_FORMAT(p.data_cadastro,'%d/%m/%Y') AS data, p.produto, p.qtd_estoque, p.descricao, "
                     + "p.estoque_minimo, p.estoque_maximo, p.preco_compra, p.preco_venda, p.fator, "
                     + "p.cod_barras, p.imagem, f.nome FROM tb_produtos AS p INNER JOIN tb_fornecedores AS f ON (p.for_id = f.id) "
@@ -262,15 +263,15 @@ public class ProdutosDAO {
             JOptionPane.showMessageDialog(null, "Ops, aconteceu o erro " + e);
             return null;
         }
-    }
+    }//fim do metodo
     
     //Método que busca Produtos por nome
     public List<Produtos> buscarProdutosPorNome(String nome) {
         try {
-            //1 Passo criar a lista
+            //Criar a lista
             List<Produtos> lista = new ArrayList<>();
 
-            //2 Passo - Criar o SQL, organizar e executar
+            //Criar o SQL, organizar e executar
             String sql = "SELECT p.id, p.status, DATE_FORMAT(p.data_cadastro,'%d/%m/%Y') AS data, p.produto, p.qtd_estoque, p.descricao, "
                     + "p.estoque_minimo, p.estoque_maximo, p.preco_compra, p.preco_venda, p.fator, "
                     + "p.cod_barras, p.imagem, f.nome FROM tb_produtos AS p INNER JOIN tb_fornecedores AS f ON (p.for_id = f.id) "
@@ -311,13 +312,13 @@ public class ProdutosDAO {
             JOptionPane.showMessageDialog(null, "Ops, aconteceu o erro " + e);
             return null;
         }
-    }
+    }//fim do metodo
     
 
-    //Método consultar Produtos por nome usado no FrmVendas
+    //Método consultar Produtos por nome (usado no FrmVendas)
     public Produtos consultarProdutosPorCodigoBarras(String CodBar) {
         try {
-            //1 Passo - Criar o SQL, organizar e executar
+            //Criar o SQL, organizar e executar
             String sql = "SELECT p.id, p.status, DATE_FORMAT(p.data_cadastro,'%d/%m/%Y') AS data, p.produto, p.qtd_estoque, p.descricao, "
                     + "p.estoque_minimo, p.estoque_maximo, p.preco_compra, p.preco_venda, p.fator, "
                     + "p.cod_barras, p.imagem, f.nome FROM tb_produtos AS p INNER JOIN tb_fornecedores AS f ON (p.for_id = f.id) "
@@ -356,15 +357,15 @@ public class ProdutosDAO {
             JOptionPane.showMessageDialog(null, "Cliente não encontrado");
             return null;
         }
-    }
+    }//fim do metodo
 
     //Metodo que da baixa no estoque
     public void baixaEstoque(int id, int qtd_nova) {
         try {
-            //1 Passo - Comando SQL
+            //Criar o comando SQL
             String sql = "UPDATE tb_produtos SET qtd_estoque=? WHERE id=?";
 
-            //2 Passo - conectar com banco de dados e organizar o comando SQL
+            //Conectar com banco de dados e organizar o comando SQL
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             stmt.setInt(1, qtd_nova);
@@ -376,17 +377,17 @@ public class ProdutosDAO {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e);
         }
-    }
+    }//fim do metodo
 
     //Método que retorna o estoque atual de um produto
     public int retornaEstoqueAtual(int id) {
         try {
             int qtd_estoque = 0;
 
-            //1 Passo - Comando SQL
+            //Criar o comando SQL
             String sql = "SELECT qtd_estoque FROM tb_produtos WHERE id=?";
 
-            //2 Passo - Organizar e executar o SQL
+            //Organizar e executar o SQL
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, id);
 
@@ -402,15 +403,15 @@ public class ProdutosDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
+    }//fim do metodo
 
     //Metodo que adiciona uma quantidade no estoque
     public void adicionarEstoque(int id, int qtd_nova) {
         try {
-            //1 Passo - Comando SQL
+            //Criar o comando SQL
             String sql = "UPDATE tb_produtos SET qtd_estoque=? WHERE id=?";
 
-            //2 Passo - conectar com banco de dados e organizar o comando SQL
+            //Conectar com banco de dados e organizar o comando SQL
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             stmt.setInt(1, qtd_nova);
@@ -422,7 +423,7 @@ public class ProdutosDAO {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Erro: " + e);
         }
-    }   
+    }//fim do metodo
     
     
 }//fim da classe

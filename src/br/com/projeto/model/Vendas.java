@@ -1,7 +1,7 @@
 package br.com.projeto.model;
 
 /**
- * Classe criada para 
+ * Classe criada para modelar o objeto Vendas
  * @author Adilson Luz
  * @since Classe Criada em 06/07/2021, 17:35:56
  */
@@ -16,7 +16,7 @@ public class Vendas {
     
     //Construtor vazio
     public Vendas() {
-    }
+    }//fim do metodo
     
     //Metodo construtor
     public Vendas(int id, Clientes cliente, String data_venda, double total_venda, String obs) {
@@ -25,11 +25,10 @@ public class Vendas {
         this.data_venda = data_venda;
         this.total_venda = total_venda;
         this.obs = obs;
-    }
+    }//fim do metodo
     
     
     //Getters & Setters
-
     public int getId() {
         return id;
     }

@@ -1,7 +1,7 @@
 package br.com.projeto.model;
 
 /**
- * Classe criada para 
+ * Classe criada para modelar o objeto produtos
  * @author Adilson Luz
  * @since Classe Criada em 05/07/2021, 18:05:27
  */
@@ -26,7 +26,7 @@ public class Produtos {
     
     //Construtor vazio
     public Produtos() {
-    }
+    }//fim do metodo
     
     
     //Método construtor
@@ -48,10 +48,10 @@ public class Produtos {
         this.codBarras = codBarras;
         this.imagem = imagem;
         this.fornecedor = fornecedor;
-    }
+    }//fim do metodo
+    
 
     //Getters & Setters
-
     public int getId() {
         return id;
     }

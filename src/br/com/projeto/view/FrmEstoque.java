@@ -13,8 +13,9 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ *Frame criado para manipular as informações entre sistema e usuario
  * @author Adilson
+ * @since frame criado em 06/07/2021 15:52:15
  */
 public class FrmEstoque extends javax.swing.JFrame {
 
@@ -22,10 +23,13 @@ public class FrmEstoque extends javax.swing.JFrame {
 
     //Método listar na tabela
     public void listar() {
+        //criando objeto produto
         ProdutosDAO dao = new ProdutosDAO();
+        //criandi lista
         List<Produtos> lista = dao.listarProdutos();
         DefaultTableModel dados = (DefaultTableModel) tabelaListaProduto.getModel();
         dados.setNumRows(0);
+        //populando lista
         for (Produtos p : lista) {
             dados.addRow(new Object[]{
                 p.getId(),                                
@@ -36,7 +40,7 @@ public class FrmEstoque extends javax.swing.JFrame {
             });
         }
     }
-
+    //iniciaçaõ de componentes e icone da tela
     public FrmEstoque() {
         initComponents();
         iconeTela();
@@ -233,14 +237,17 @@ public class FrmEstoque extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    //carregando um lista ao abrir tela
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
         listar();
     }//GEN-LAST:event_formWindowActivated
-
+    
+    //botão pesquisar produto
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         String nome = "%" + txtProduto.getText() + "%";
-
+        //criando objeto produto
         ProdutosDAO dao = new ProdutosDAO();
+        //buscando produto na lista
         List<Produtos> lista = dao.buscarProdutosPorNome(nome);
         DefaultTableModel dados = (DefaultTableModel) tabelaListaProduto.getModel();
         dados.setNumRows(0);
@@ -254,7 +261,7 @@ public class FrmEstoque extends javax.swing.JFrame {
             });
         }
     }//GEN-LAST:event_btnPesquisarActionPerformed
-
+    //Evento que retorna produto ao clicar em item da lista
     private void tabelaListaProdutoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaListaProdutoMouseClicked
 
         idproduto = Integer.parseInt(tabelaListaProduto.getValueAt(tabelaListaProduto.getSelectedRow(), 0).toString());
@@ -262,9 +269,9 @@ public class FrmEstoque extends javax.swing.JFrame {
         txtEstoqueAtual.setText(tabelaListaProduto.getValueAt(tabelaListaProduto.getSelectedRow(), 3).toString());
 
     }//GEN-LAST:event_tabelaListaProdutoMouseClicked
-
+    // Botão que adiciona uma quantidade nova no estoque
     private void btnAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarActionPerformed
-        // Botão que adiciona uma quantidade nova no estoque
+        
         try {
             int qtd_estoque, qtd;
 

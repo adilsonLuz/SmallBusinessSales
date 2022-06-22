@@ -10,7 +10,9 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
- * Classe criada para 
+ * Classe criada para instanciar os metodos que controlam 
+ * as funções de fornecedores no banco de dados do sistema
+ * 
  * @author Adilson Luz
  * @since Classe Criada em 05/07/2021, 16:08:50
  */
@@ -18,6 +20,7 @@ public class FornecedoresDAO {
     
     private Connection conn;
 
+    //Cria conexão com banco de dados
     public FornecedoresDAO() {
         this.conn = new ConnectionFactory().getConnection();
     }
@@ -25,12 +28,12 @@ public class FornecedoresDAO {
     //Método para cadastrar Fornecedores
     public void cadastrarFornecedores(Fornecedores obj) {
         try {
-            //1 Passo - criar comando SQL
+            //Criar comando SQL
             String sql = "INSERT INTO tb_fornecedores (nome, cnpj, email, telefone, celular, cep, endereco, numero, "
                     + "complemento, bairro, cidade, estado)"
                     + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 
-            //2 Passo - Conectar no banco da dados e organizar o comando SQL
+            //Conectar no banco da dados e organizar o comando SQL
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             stmt.setString(1, obj.getNome());
@@ -46,7 +49,7 @@ public class FornecedoresDAO {
             stmt.setString(11, obj.getCidade());
             stmt.setString(12, obj.getUf());
 
-            //3 Passo - Executar o comando SQL
+            //Executar o comando SQL
             stmt.execute();
             stmt.close();
 
@@ -57,15 +60,16 @@ public class FornecedoresDAO {
         }
     }//Fim do metodo
 
+    
     //Método para alterar Fornecedores
     public void alterarFornecedores(Fornecedores obj) {
         try {
-            //1 Passo - criar comando SQL
+            //Criar comando SQL
             String sql = "UPDATE tb_fornecedores SET nome=?, cnpj=?, email=?, telefone=?,"
                     + " celular=?, cep=?, endereco=?, numero=?, complemento=?, bairro=?,"
                     + " cidade=?, estado=? WHERE id=?";
 
-            //2 Passo - Conectar no banco da dados e organizar o comando SQL
+            //Conectar no banco da dados e organizar o comando SQL
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             stmt.setString(1, obj.getNome());
@@ -82,7 +86,7 @@ public class FornecedoresDAO {
             stmt.setString(12, obj.getUf());
             stmt.setInt(13, obj.getId());
 
-            //3 Passo - Executar o comando SQL
+            //Executar o comando SQL
             stmt.execute();
             stmt.close();
 
@@ -93,18 +97,19 @@ public class FornecedoresDAO {
         }
     }//Fim do metodo
 
+    
     //Método para excluir Fornecedores
     public void excluirFornecedores(Fornecedores obj) {
         try {
-            //1 Passo - criar comando SQL
+            //Criar comando SQL
             String sql = "DELETE FROM tb_fornecedores WHERE id = ?";
 
-            //2 Passo - Conectar no banco da dados e organizar o comando SQL
+            //Conectar no banco da dados e organizar o comando SQL
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             stmt.setInt(1, obj.getId());
 
-            //3 Passo - Executar o comando SQL
+            //Executar o comando SQL
             stmt.execute();
             stmt.close();
 
@@ -118,10 +123,10 @@ public class FornecedoresDAO {
     //Método que lista todos os Fornecedores
     public List<Fornecedores> listarFornecedores() {
         try {
-            //1 Passo criar a lista
+            //Criar a lista
             List<Fornecedores> lista = new ArrayList<>();
 
-            //2 Passo - Criar o SQL, organizar e executar
+            //Criar o SQL, organizar e executar
             String sql = "SELECT * FROM tb_fornecedores";
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
@@ -158,7 +163,7 @@ public class FornecedoresDAO {
     //Método consultar Fornecedores por nome
     public Fornecedores consultarFornecedoresPorNome(String nome) {
         try {
-            //1 Passo - Criar o SQL, organizar e executar
+            //Criar o SQL, organizar e executar
             String sql = "SELECT * FROM tb_fornecedores WHERE nome = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, nome);
@@ -194,10 +199,10 @@ public class FornecedoresDAO {
     //Método que busca Fornecedores por nome
     public List<Fornecedores> buscarFornecedoresPorNome(String nome) {
         try {
-            //1 Passo criar a lista
+            //Criar a lista
             List<Fornecedores> lista = new ArrayList<>();
 
-            //2 Passo - Criar o SQL, organizar e executar
+            //Criar o SQL, organizar e executar
             String sql = "SELECT * FROM tb_fornecedores WHERE nome LIKE ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, nome);

@@ -1,7 +1,7 @@
 package br.com.projeto.model;
 
 /**
- * Classe criada para 
+ * Classe criada para modelar um objeto de itens de venda
  * @author Adilson Luz
  * @since Classe Criada em 08/07/2021, 15:01:56
  */
@@ -16,7 +16,7 @@ public class ItemVenda {
     
     //Contrutor vazio
     public ItemVenda() {
-    }
+    }//fim do metodo
         
     //Metodo construtor
     public ItemVenda(int id, Vendas venda, Produtos produto, int qtd, double subtotal) {
@@ -25,7 +25,7 @@ public class ItemVenda {
         this.produto = produto;
         this.qtd = qtd;
         this.subtotal = subtotal;
-    }
+    }//fim do metodo
     
     //Getters & Setters
     public int getId() {

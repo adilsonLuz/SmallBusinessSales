@@ -14,7 +14,8 @@ import javax.swing.Icon;
 import javax.swing.JOptionPane;
 
 /**
- * Classe criada para
+ * Classe criada para instanciar os metodos que controlam 
+ * as funções de Funcionarios no banco de dados do sistema
  *
  * @author Adilson Luz
  * @since Classe Criada em 04/07/2021, 17:07:32
@@ -23,6 +24,7 @@ public class FuncionariosDAO {
 
     private Connection conn;
 
+    //cria conexao com banco de dados
     public FuncionariosDAO() {
         this.conn = new ConnectionFactory().getConnection();
     }
@@ -30,12 +32,12 @@ public class FuncionariosDAO {
     //Metodo cadastrar um funcionario
     public void cadastrarFuncionario(Funcionarios obj) {
         try {
-            //1 Passo - criar comando SQL
+            //Criar comando SQL
             String sql = "INSERT INTO tb_funcionarios (nome, rg, cpf, email, senha, cargo, nivel_acesso, telefone, "
                     + "celular, cep, endereco, numero, complemento, bairro, cidade, estado)"
                     + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-            //2 Passo - Conectar no banco da dados e organizar o comando SQL
+            //Conectar no banco da dados e organizar o comando SQL
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             stmt.setString(1, obj.getNome());
@@ -55,7 +57,7 @@ public class FuncionariosDAO {
             stmt.setString(15, obj.getCidade());
             stmt.setString(16, obj.getUf());
 
-            //3 Passo - Executar o comando SQL
+            //Executar o comando SQL
             stmt.execute();
             stmt.close();
 
@@ -69,12 +71,12 @@ public class FuncionariosDAO {
     //Método para alterar um funcionario
     public void alterarFuncionario(Funcionarios obj) {
         try {
-            //1 Passo - criar comando SQL
+            //Criar comando SQL
             String sql = "UPDATE tb_funcionarios SET nome=?, rg=?, cpf=?, email=?, senha=?,"
                     + " cargo=?, nivel_acesso=?, telefone=?, celular=?, cep=?, endereco=?, "
                     + "numero=?, complemento=?, bairro=?, cidade=?, estado=? WHERE id=?";
 
-            //2 Passo - Conectar no banco da dados e organizar o comando SQL
+            //Conectar no banco da dados e organizar o comando SQL
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             stmt.setString(1, obj.getNome());
@@ -95,7 +97,7 @@ public class FuncionariosDAO {
             stmt.setString(16, obj.getUf());
             stmt.setInt(17, obj.getId());
 
-            //3 Passo - Executar o comando SQL
+            //Executar o comando SQL
             stmt.execute();
             stmt.close();
 
@@ -109,15 +111,15 @@ public class FuncionariosDAO {
     //Método para excluir um funcionario
     public void excluirFuncionario(Funcionarios obj) {
         try {
-            //1 Passo - criar comando SQL
+            //Criar comando SQL
             String sql = "DELETE FROM tb_funcionarios WHERE id = ?";
 
-            //2 Passo - Conectar no banco da dados e organizar o comando SQL
+            //Conectar no banco da dados e organizar o comando SQL
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             stmt.setInt(1, obj.getId());
 
-            //3 Passo - Executar o comando SQL
+            //Executar o comando SQL
             stmt.execute();
             stmt.close();
 
@@ -131,10 +133,10 @@ public class FuncionariosDAO {
     //Método que lista todos os funcionarios
     public List<Funcionarios> listarFuncionarios() {
         try {
-            //1 Passo criar a lista
+            //Criar a lista
             List<Funcionarios> lista = new ArrayList<>();
 
-            //2 Passo - Criar o SQL, organizar e executar
+            //Criar o SQL, organizar e executar
             String sql = "SELECT * FROM tb_funcionarios";
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
@@ -175,7 +177,7 @@ public class FuncionariosDAO {
     //Método consultar funcionario por nome
     public Funcionarios consultarFuncionarioPorNome(String nome) {
         try {
-            //1 Passo - Criar o SQL, organizar e executar
+            //Criar o SQL, organizar e executar
             String sql = "SELECT * FROM tb_funcionarios WHERE nome = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, nome);
@@ -215,10 +217,10 @@ public class FuncionariosDAO {
     //Método que busca funcionario por nome
     public List<Funcionarios> buscarFuncionarioPorNome(String nome) {
         try {
-            //1 Passo criar a lista
+            //Criar a lista
             List<Funcionarios> lista = new ArrayList<>();
 
-            //2 Passo - Criar o SQL, organizar e executar
+            //Criar o SQL, organizar e executar
             String sql = "SELECT * FROM tb_funcionarios WHERE nome LIKE ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, nome);
@@ -260,9 +262,10 @@ public class FuncionariosDAO {
     //Método para efetuar o login
     public void efetuarLogin(String email, String senha) {
 
+        //coloca um icone para tela
         Icon icon = new javax.swing.ImageIcon(getClass().getResource("/imagens/iconOk_1.png"));
         try {
-            //1 Passo - Comando SQL
+            //Criar o Comando SQL
             String sql = "SELECT * FROM tb_funcionarios WHERE email=? AND senha=?";
 
             PreparedStatement stmt = conn.prepareStatement(sql);

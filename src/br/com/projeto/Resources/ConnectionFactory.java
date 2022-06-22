@@ -17,6 +17,6 @@ public class ConnectionFactory {
         }catch (Exception e) {
             throw new RuntimeException(e);
         }
-    }
+    }//fim do metodo
 
 }//fim da classe

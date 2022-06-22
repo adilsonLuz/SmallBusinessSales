@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
- * Classe criada para instanciar os metodos que controlam as funções do banco de
- * dados
+ * Classe criada para instanciar os metodos que controlam 
+ * as funções de clientes no banco de dados do sistema
  *
  * @author Adilson Luz
  * @since Classe Criada em 03/07/2021, 18:36:31
@@ -20,6 +20,7 @@ public class ClientesDAO {
 
     private Connection conn;
 
+    //Cria conexão com banco de dados
     public ClientesDAO() {
         this.conn = new ConnectionFactory().getConnection();
     }
@@ -27,12 +28,12 @@ public class ClientesDAO {
     //Método para cadastrar clientes
     public void cadastrarCliente(Clientes obj) {
         try {
-            //1 Passo - criar comando SQL
+            //Criar comando SQL
             String sql = "INSERT INTO tb_clientes (nome, rg, cpf, email, telefone, celular, cep, endereco, numero, "
                     + "complemento, bairro, cidade, estado)"
                     + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-            //2 Passo - Conectar no banco da dados e organizar o comando SQL
+            //Conectar no banco da dados e organizar o comando SQL
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             stmt.setString(1, obj.getNome());
@@ -49,10 +50,11 @@ public class ClientesDAO {
             stmt.setString(12, obj.getCidade());
             stmt.setString(13, obj.getUf());
 
-            //3 Passo - Executar o comando SQL
+            //Executar o comando SQL
             stmt.execute();
             stmt.close();
 
+            //retorna mensagem
             JOptionPane.showMessageDialog(null, "Cadastrado com Sucesso!!!");
 
         } catch (Exception e) {
@@ -63,12 +65,12 @@ public class ClientesDAO {
     //Método para alterar clientes
     public void alterarCliente(Clientes obj) {
         try {
-            //1 Passo - criar comando SQL
+            //Criar comando SQL
             String sql = "UPDATE tb_clientes SET nome=?, rg=?, cpf=?, email=?, telefone=?,"
                     + " celular=?, cep=?, endereco=?, numero=?, complemento=?, bairro=?,"
                     + " cidade=?, estado=? WHERE id=?";
 
-            //2 Passo - Conectar no banco da dados e organizar o comando SQL
+            //Conectar no banco da dados e organizar o comando SQL
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             stmt.setString(1, obj.getNome());
@@ -86,7 +88,7 @@ public class ClientesDAO {
             stmt.setString(13, obj.getUf());
             stmt.setInt(14, obj.getId());
 
-            //3 Passo - Executar o comando SQL
+            //Executar o comando SQL
             stmt.execute();
             stmt.close();
 
@@ -100,15 +102,15 @@ public class ClientesDAO {
     //Método para excluir clientes
     public void excluirCliente(Clientes obj) {
         try {
-            //1 Passo - criar comando SQL
+            //Criar comando SQL
             String sql = "DELETE FROM tb_clientes WHERE id = ?";
 
-            //2 Passo - Conectar no banco da dados e organizar o comando SQL
+            //Conectar no banco da dados e organizar o comando SQL
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             stmt.setInt(1, obj.getId());
 
-            //3 Passo - Executar o comando SQL
+            //Executar o comando SQL
             stmt.execute();
             stmt.close();
 
@@ -122,10 +124,10 @@ public class ClientesDAO {
     //Método que lista todos os Clientes
     public List<Clientes> listarClientes() {
         try {
-            //1 Passo criar a lista
+            //Criar a lista
             List<Clientes> lista = new ArrayList<>();
 
-            //2 Passo - Criar o SQL, organizar e executar
+            //Criar o SQL, organizar e executar
             String sql = "SELECT * FROM tb_clientes";
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
@@ -148,6 +150,7 @@ public class ClientesDAO {
                 obj.setCidade(rs.getString("cidade"));
                 obj.setUf(rs.getString("estado"));
 
+                //Adicionar objeto cliente a lista
                 lista.add(obj);
 
             }
@@ -163,7 +166,7 @@ public class ClientesDAO {
     //Método consultar cliente por nome
     public Clientes consultarPorNome(String nome) {
         try {
-            //1 Passo - Criar o SQL, organizar e executar
+            //Criar o SQL, organizar e executar
             String sql = "SELECT * FROM tb_clientes WHERE nome = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, nome);
@@ -200,10 +203,10 @@ public class ClientesDAO {
     //Método que busca Cliente por nome
     public List<Clientes> buscarClientePorNome(String nome) {
         try {
-            //1 Passo criar a lista
+            //Criar a lista
             List<Clientes> lista = new ArrayList<>();
 
-            //2 Passo - Criar o SQL, organizar e executar
+            //Criar o SQL, organizar e executar
             String sql = "SELECT * FROM tb_clientes WHERE nome LIKE ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, nome);
@@ -238,10 +241,10 @@ public class ClientesDAO {
         }
     }
     
-    //Método consultar cliente por nome
+    //Método consultar cliente por CPF
     public Clientes consultarPorCpf(String cpf) {
         try {
-            //1 Passo - Criar o SQL, organizar e executar
+            //Criar o SQL, organizar e executar
             String sql = "SELECT * FROM tb_clientes WHERE cpf = ?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, cpf);

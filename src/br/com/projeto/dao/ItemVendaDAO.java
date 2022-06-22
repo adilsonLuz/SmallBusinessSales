@@ -11,7 +11,9 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
- * Classe criada para 
+ * Classe criada para instanciar os metodos que controlam
+ * as funções de itens vendidos no banco de dados
+ * 
  * @author Adilson Luz
  * @since Classe Criada em 09/07/2021, 12:26:34
  */
@@ -19,6 +21,7 @@ public class ItemVendaDAO {
     
     private Connection conn;
 
+    //Cira conexão com banco de dados
     public ItemVendaDAO() {
         this.conn = new ConnectionFactory().getConnection();
     }
@@ -27,11 +30,11 @@ public class ItemVendaDAO {
     public void cadastraItem(ItemVenda obj){
         
         try {
-            //1 Passo - criar comando SQL
+            //Criar comando SQL
             String sql = "INSERT INTO tb_itensvendas (venda_id, produto_id, qtd, subtotal)"
                        + "VALUES (?,?,?,?)";
 
-            //2 Passo - Conectar no banco da dados e organizar o comando SQL
+            //Conectar no banco da dados e organizar o comando SQL
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             stmt.setInt(1, obj.getVenda().getId());
@@ -39,7 +42,7 @@ public class ItemVendaDAO {
             stmt.setInt(3, obj.getQtd());
             stmt.setDouble(4, obj.getSubtotal());
 
-            //3 Passo - Executar o comando SQL
+            //Executar o comando SQL
             stmt.execute();
             stmt.close();
 
@@ -51,11 +54,11 @@ public class ItemVendaDAO {
     //Metodo que lista itens de uma venda por ID
     public List<ItemVenda> listarItensPorVenda(int venda_id) {
         try {
-            //1 Passo criar a lista
+            //Criar a lista
             List<ItemVenda> lista = new ArrayList<>();
 
-            //2 Passo - Criar o SQL, organizar e executar
-            String sql = "SELECT p.descricao, i.qtd, i.subtotal FROM tb_itensvendas AS i "
+            //Criar o SQL, organizar e executar
+            String sql = "SELECT p.descricao, i.qtd, p.preco_venda, i.subtotal FROM tb_itensvendas AS i "
                        + " INNER JOIN tb_produtos AS p ON (i.produto_id = p.id)"
                        + " WHERE i.venda_id = ?";
             
@@ -69,8 +72,8 @@ public class ItemVendaDAO {
                 Produtos prod = new Produtos();
                 
                 prod.setDescricao(rs.getString("p.descricao"));
-                item.setQtd(rs.getInt("i.qtd"));
-                
+                item.setQtd(rs.getInt("i.qtd"));  
+                prod.setPrecoVender(rs.getDouble("p.preco_venda"));
                 item.setSubtotal(rs.getDouble("i.subtotal"));
                 
                 item.setProduto(prod);                

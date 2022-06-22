@@ -235,7 +235,7 @@ public class FrmHistorico extends javax.swing.JFrame {
             dados.addRow(new Object[]{               
                 iv.getProduto().getDescricao(),                
                 iv.getQtd(),
-                
+                iv.getProduto().getPrecoVender(),
                 iv.getSubtotal()
             });
         }

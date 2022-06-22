@@ -16,6 +16,6 @@ public class TestaConexao {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Opss... aconteceu o erro " + e);
         }
-    }
+    }//fim do metodo
 
 }//fim da classe

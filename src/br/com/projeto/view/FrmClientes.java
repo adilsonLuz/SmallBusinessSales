@@ -5,8 +5,7 @@
  */
 package br.com.projeto.view;
 
-import br.com.correios.bsb.sigep.master.bean.cliente.SQLException_Exception;
-import br.com.correios.bsb.sigep.master.bean.cliente.SigepClienteException;
+
 import br.com.projeto.Resources.Helpers;
 import br.com.projeto.dao.ClientesDAO;
 import br.com.projeto.model.Clientes;
@@ -17,17 +16,22 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
- * @author Adilson
+ *Frame criado para manipular as informações entre sistema e usuario
+ * 
+ * @author Adilson Luz
+ * @since Classe Criada em 04/07/2021, 14:46:25
  */
 public class FrmClientes extends javax.swing.JFrame {
 
     //Método listar na tabela
     public void listar() {
+        //criando objeto cliente
         ClientesDAO dao = new ClientesDAO();
+        //criando lista
         List<Clientes> lista = dao.listarClientes();
         DefaultTableModel dados = (DefaultTableModel) tabelaClientes.getModel();
         dados.setNumRows(0);
+        //populando lista
         for (Clientes c : lista) {
             dados.addRow(new Object[]{
                 c.getId(),
@@ -46,7 +50,7 @@ public class FrmClientes extends javax.swing.JFrame {
                 c.getUf()
             });
         }
-    }
+    }//fim do metodo
 
     /**
      * Creates new form Frmclientes
@@ -573,10 +577,12 @@ public class FrmClientes extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    //botão que limpa todos os campos do formulario
     private void btNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btNovoActionPerformed
         new Helpers().limpaTela(panelDados);
     }//GEN-LAST:event_btNovoActionPerformed
-
+    
+    //botao salvar
     private void btSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSalvarActionPerformed
         try {
             Clientes obj = new Clientes();
@@ -596,20 +602,21 @@ public class FrmClientes extends javax.swing.JFrame {
             obj.setUf(cbUf.getSelectedItem().toString());
 
             ClientesDAO dao = new ClientesDAO();
+            //salvando objeto cliente no banco de dados
             dao.cadastrarCliente(obj);
-
+            //limpando campos do formulario
             new Helpers().limpaTela(panelDados);
 
         } catch (Exception e) {
             JOptionPane.showConfirmDialog(null, "Ops.. houve o erro " + e);
         }
     }//GEN-LAST:event_btSalvarActionPerformed
-
+    //Carrega uma lista ao abrir o formulario
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        // Carrega a lista
-        listar();
+            listar();
     }//GEN-LAST:event_formWindowActivated
 
+    //carrega objeto cliente no formulario ao clicar em um item da lista
     private void tabelaClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaClientesMouseClicked
         // Pega os Dados
         jTabbedPane1.setSelectedIndex(0);
@@ -630,8 +637,9 @@ public class FrmClientes extends javax.swing.JFrame {
 
     }//GEN-LAST:event_tabelaClientesMouseClicked
 
+    // Botão Alterar
     private void btEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEditarActionPerformed
-        // Botão Alterar
+        
         try {
             Clientes obj = new Clientes();
 
@@ -660,8 +668,9 @@ public class FrmClientes extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btEditarActionPerformed
 
+    // Botão Excluir
     private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
-        // Botão Excluir
+        
         int op;
         op = JOptionPane.showConfirmDialog(null, "Tem certeza que deseja excluir?");
 
@@ -769,19 +778,22 @@ public class FrmClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_btPesqNomeActionPerformed
 
     private void txtEndActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEndActionPerformed
-        // TODO add your handling code here:
+        // não utilizado
     }//GEN-LAST:event_txtEndActionPerformed
 
+    //Botão buscar CEP
     private void btBuscaCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscaCepActionPerformed
 
+        //Conexão com WebService
         br.com.correios.bsb.sigep.master.bean.cliente.AtendeClienteService service = new br.com.correios.bsb.sigep.master.bean.cliente.AtendeClienteService();
         br.com.correios.bsb.sigep.master.bean.cliente.AtendeCliente port = service.getAtendeClientePort();
 
         try {
-
             String cep = ftxtCep.getText();
+            //Realizando consulta
             br.com.correios.bsb.sigep.master.bean.cliente.EnderecoERP resultCep = port.consultaCEP(cep);
 
+            //retornando objeto do CEP para o formulario
             txtEnd.setText(resultCep.getEnd());
             txtBairro.setText(resultCep.getBairro());
             txtCidade.setText(resultCep.getCidade());
@@ -829,9 +841,10 @@ public class FrmClientes extends javax.swing.JFrame {
         });
     }
 
+    //Metodo que coloca icone na tela
     private void iconeTela() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagens/IconClientes.png")));
-    }
+    }//fim do metodo
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBuscaCep;
