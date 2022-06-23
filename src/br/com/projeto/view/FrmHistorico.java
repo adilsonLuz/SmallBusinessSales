@@ -13,6 +13,7 @@ import java.awt.Color;
 import java.awt.Toolkit;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -239,10 +240,10 @@ public class FrmHistorico extends javax.swing.JFrame {
                 iv.getSubtotal()
             });
         }
-
+        
         tela.setVisible(true);
     }//GEN-LAST:event_tabelaHistoricoMouseClicked
-
+    
     private void iconeTela() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/imagens/relatorio.png")));
     }

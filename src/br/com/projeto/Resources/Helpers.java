@@ -5,6 +5,7 @@
  */
 package br.com.projeto.Resources;
 
+import br.com.projeto.model.ItemVenda;
 import br.com.projeto.view.FrmProdutos;
 import com.toedter.calendar.JDateChooser;
 import java.awt.Component;
@@ -14,6 +15,21 @@ import javax.swing.JComboBox;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import br.com.projeto.view.FrmClientes;
+import br.com.projeto.view.FrmDetalheVenda;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.ArrayList;
+import javax.print.DocFlavor;
+import javax.print.DocPrintJob;
+import javax.print.PrintService;
+import javax.print.PrintServiceLookup;
+import javax.print.SimpleDoc;
+import javax.print.attribute.HashPrintRequestAttributeSet;
+import javax.print.attribute.PrintRequestAttributeSet;
+import javax.print.attribute.standard.JobName;
+import javax.print.attribute.standard.MediaSizeName;
+import javax.print.attribute.standard.OrientationRequested;
+import javax.swing.JOptionPane;
 
 /**
  * Classe criada como ajudante de metodos repetitivos *
@@ -25,6 +41,8 @@ public class Helpers {
     //Cria novo objeto para telas
     FrmProdutos t = new FrmProdutos();
     FrmClientes c = new FrmClientes();
+    FrmDetalheVenda it = new FrmDetalheVenda();
+    
 
     private String ean;
 
@@ -50,7 +68,7 @@ public class Helpers {
                 ((JDateChooser) component).setCalendar(null);
             }
         }
-    }
+    }//fim do metodo
 
     //Metodo que faz conversão de data e hora para o padrão brasileiro
     public String dataHoraBr() {
@@ -69,7 +87,7 @@ public class Helpers {
         date = data + " - " + hora;
 
         return date;
-    }
+    }//fim do metodo
 
     //Metodo que faz conversão de data e hora para o padrão americano
     public String dataHoraEUA() {
@@ -88,7 +106,7 @@ public class Helpers {
         date = data + " - " + hora;
 
         return date;
-    }
+    }//fim do metodo
 
     //Metodo que gera um código de barras valido
     public String gerarCodBar(String codBarras) {
@@ -106,7 +124,72 @@ public class Helpers {
         System.out.println(ean);
 
         return ean;
-    }
+    }//fim do metodo
+        
+    //Metodo que organiza impressao do cupom
+    private void cupom(ArrayList<ItemVenda> lista, ItemVenda obj) {
+        String printCP = "";
 
+        for (int i = 0; i < lista.size(); i++) {
+            printCP += i+1 +""
+                    +  lista.get(i).getProduto() +"    "
+                    +  lista.get(i).getQtd() +"    "
+                    +  lista.get(i).getSubtotal() + "\n\r";
+            
+                    this.imprimirCupom("Small Business Sales"
+                    + "Av. Tenente Marques 5136\n\r"
+                    + " Fazendinha Stna Parnaíba\n\r"
+                    + "CNPJ 00.000.000/0001-00\n\r"
+                    + "Tel: (11) 2424-2757\n\r"
+                    + dataHoraBr() + "\n\r"
+                    + "----------------------------------\n\r"
+                    + "        CUPOM NAO FISCAL          \n\r"
+                    + "----------------------------------\n\r"
+                    + "#    DESCRICAO      QT    SUBTOTAL\n\r"
+                    + printCP + "\n\r"
+                    + "----------------------------------\n\r"
+                    + "VALOR                     " + it.txtTotalVenda.getText() + "\n\r"
+                    + "DESCONTO                  " + it.txtObs.getText() + "\n\r"
+                    + "TOTAL                     " + it.txtTotalVenda.getText() + "\n\r"
+                    + "\n\r"
+                    + "     OBRIGADO, VOLTE SEMPRE!!!    \n\r"
+                    + "\n\r\n\r\f"                    
+            );
+                    
+        }
+    }//fim da classe
+    
+    //Metodo que imprime um cupom não fiscal
+    public void imprimirCupom(String cupom){
+        try {
+            //preparando documento para imprimir
+                InputStream print = new ByteArrayInputStream(cupom.getBytes());
+                DocFlavor docFlavor = DocFlavor.INPUT_STREAM.AUTOSENSE;
+                SimpleDoc docText = new SimpleDoc(print, docFlavor, null);
+                PrintService impressora = PrintServiceLookup.lookupDefaultPrintService();
+                //buscando impressora
+                PrintRequestAttributeSet printerAtributes = new HashPrintRequestAttributeSet();
+                printerAtributes.add(new JobName("Impressao", null));
+                //configurando pagina para impressao
+                printerAtributes.add(OrientationRequested.PORTRAIT);
+                printerAtributes.add(MediaSizeName.ISO_A4);
+                //pegando a impressao formatada
+                DocPrintJob printJob = impressora.createPrintJob();                
+                
+            try {
+                //imprimindo
+                printJob.print(docText, (PrintRequestAttributeSet) printerAtributes);
+                
+            } catch (Exception e) {
+                //retorna messagem de erro de impressao
+                JOptionPane.showMessageDialog(null, "Erro na impressão!!!", "ERRO", JOptionPane.ERROR_MESSAGE);
+            }
+            
+            print.close();
+            
+        } catch (Exception e) {
+            
+        }
+    }//fim do metodo
     
 }//fim da classe

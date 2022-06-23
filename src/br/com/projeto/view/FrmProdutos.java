@@ -933,7 +933,7 @@ public class FrmProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_cbFornecedoresMouseClicked
 
     private void btImprimirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btImprimirActionPerformed
-        MessageFormat header = new MessageFormat("");
+        MessageFormat header = new MessageFormat("TABELA DE PRODUTOS");
         MessageFormat footer = new MessageFormat("");
         try {
             tabelaProdutos.print(JTable.PrintMode.NORMAL, header, footer);
