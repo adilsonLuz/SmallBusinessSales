@@ -30,6 +30,8 @@ import javax.print.attribute.standard.JobName;
 import javax.print.attribute.standard.MediaSizeName;
 import javax.print.attribute.standard.OrientationRequested;
 import javax.swing.JOptionPane;
+import net.sourceforge.barbecue.Barcode;
+import net.sourceforge.barbecue.linear.ean.EAN13Barcode;
 
 /**
  * Classe criada como ajudante de metodos repetitivos *
@@ -192,4 +194,5 @@ public class Helpers {
         }
     }//fim do metodo
     
+        
 }//fim da classe

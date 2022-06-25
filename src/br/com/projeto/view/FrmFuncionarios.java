@@ -491,7 +491,7 @@ public class FrmFuncionarios extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabelaFuncionarios);
         if (tabelaFuncionarios.getColumnModel().getColumnCount() > 0) {
             tabelaFuncionarios.getColumnModel().getColumn(0).setResizable(false);
-            tabelaFuncionarios.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tabelaFuncionarios.getColumnModel().getColumn(0).setPreferredWidth(25);
             tabelaFuncionarios.getColumnModel().getColumn(1).setPreferredWidth(105);
             tabelaFuncionarios.getColumnModel().getColumn(2).setResizable(false);
             tabelaFuncionarios.getColumnModel().getColumn(2).setPreferredWidth(0);

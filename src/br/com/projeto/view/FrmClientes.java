@@ -426,7 +426,7 @@ public class FrmClientes extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabelaClientes);
         if (tabelaClientes.getColumnModel().getColumnCount() > 0) {
             tabelaClientes.getColumnModel().getColumn(0).setResizable(false);
-            tabelaClientes.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tabelaClientes.getColumnModel().getColumn(0).setPreferredWidth(25);
             tabelaClientes.getColumnModel().getColumn(1).setResizable(false);
             tabelaClientes.getColumnModel().getColumn(1).setPreferredWidth(120);
             tabelaClientes.getColumnModel().getColumn(2).setResizable(false);

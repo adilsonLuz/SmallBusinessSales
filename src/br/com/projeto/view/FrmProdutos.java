@@ -477,7 +477,7 @@ public class FrmProdutos extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabelaProdutos);
         if (tabelaProdutos.getColumnModel().getColumnCount() > 0) {
             tabelaProdutos.getColumnModel().getColumn(0).setResizable(false);
-            tabelaProdutos.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tabelaProdutos.getColumnModel().getColumn(0).setPreferredWidth(25);
             tabelaProdutos.getColumnModel().getColumn(1).setResizable(false);
             tabelaProdutos.getColumnModel().getColumn(1).setPreferredWidth(0);
             tabelaProdutos.getColumnModel().getColumn(2).setResizable(false);
@@ -689,7 +689,7 @@ public class FrmProdutos extends javax.swing.JFrame {
 
         try {
             //gerando cópdigo de Barras
-            Barcode barcode = BarcodeFactory.createEAN128(txtCodBarras.getText());
+            Barcode barcode = BarcodeFactory.createEAN13(txtCodBarras.getText());
             //imprimindo codigo de barras
             PrinterJob printerJob = PrinterJob.getPrinterJob();
             printerJob.setPrintable(barcode);

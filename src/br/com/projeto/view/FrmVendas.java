@@ -191,14 +191,13 @@ public class FrmVendas extends javax.swing.JFrame {
         txtData.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
 
         txtNome.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        txtNome.setText("Sem Cadastro");
 
         try {
             ftxtCpf.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
-        ftxtCpf.setText("000.000.000-00");
+        ftxtCpf.setText("");
         ftxtCpf.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         ftxtCpf.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {

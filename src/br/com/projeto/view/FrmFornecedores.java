@@ -399,7 +399,7 @@ public class FrmFornecedores extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabelaFornecedores);
         if (tabelaFornecedores.getColumnModel().getColumnCount() > 0) {
             tabelaFornecedores.getColumnModel().getColumn(0).setResizable(false);
-            tabelaFornecedores.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tabelaFornecedores.getColumnModel().getColumn(0).setPreferredWidth(25);
             tabelaFornecedores.getColumnModel().getColumn(1).setResizable(false);
             tabelaFornecedores.getColumnModel().getColumn(1).setPreferredWidth(115);
             tabelaFornecedores.getColumnModel().getColumn(2).setResizable(false);

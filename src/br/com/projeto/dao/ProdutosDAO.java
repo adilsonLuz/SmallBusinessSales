@@ -131,7 +131,7 @@ public class ProdutosDAO {
             //Criar o SQL, organizar e executar
             String sql = "SELECT p.id, p.status, DATE_FORMAT(p.data_cadastro,'%d/%m/%Y') AS data, p.produto, p.qtd_estoque, p.descricao, "
                     + "p.estoque_minimo, p.estoque_maximo, p.preco_compra, p.preco_venda, p.fator, "
-                    + "p.cod_barras, p.imagem, f.nome FROM tb_produtos AS p INNER JOIN tb_fornecedores AS f ON (p.for_id = f.id)";
+                    + "p.cod_barras, p.imagem, f.nome FROM tb_produtos AS p INNER JOIN tb_fornecedores AS f ON (p.for_id = f.id) ORDER BY p.id";
 
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
