@@ -127,7 +127,7 @@ public class FornecedoresDAO {
             List<Fornecedores> lista = new ArrayList<>();
 
             //Criar o SQL, organizar e executar
-            String sql = "SELECT * FROM tb_fornecedores";
+            String sql = "SELECT * FROM tb_fornecedores ORDER BY nome ASC";
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
 

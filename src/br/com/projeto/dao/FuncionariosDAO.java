@@ -5,6 +5,7 @@ import br.com.projeto.model.Funcionarios;
 import br.com.projeto.view.FrmFuncionarios;
 import br.com.projeto.view.FrmLogin;
 import br.com.projeto.view.FrmMenu;
+import br.com.projeto.view.FrmVendas;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -279,17 +280,21 @@ public class FuncionariosDAO {
                 if (rs.getString("nivel_acesso").equals("Administrador")) {                    
                     JOptionPane.showMessageDialog(null, "Acesso Permitido", "SEJA BEM VINDO AO SISTEMA",
                             JOptionPane.INFORMATION_MESSAGE, icon);
-                    FrmMenu tela = new FrmMenu();                    
-                    tela.usuarioLogado = rs.getString("nome");                   
+                    FrmMenu tela = new FrmMenu();                   
+                    FrmVendas venda = new FrmVendas();                   
+                    tela.usuarioLogado = rs.getString("nome");                 
+                    venda.operador = rs.getString("nome");                 
 
                     tela.setVisible(true);
                 } //caso o usuario seja do tipo limitado
                 else if (rs.getString("nivel_acesso").equals("Usuario")) {
                     JOptionPane.showMessageDialog(null, "Acesso Permitido", "SEJA BEM VINDO AO SISTEMA",
                             JOptionPane.INFORMATION_MESSAGE, icon);
-                    FrmMenu tela = new FrmMenu();       
-                    FrmFuncionarios telaFunc =new FrmFuncionarios();
-                    tela.usuarioLogado = rs.getString("nome");                   
+                    FrmMenu tela = new FrmMenu(); 
+                    FrmVendas venda = new FrmVendas();
+                    FrmFuncionarios telaFunc = new FrmFuncionarios();
+                    tela.usuarioLogado = rs.getString("nome");                  
+                    venda.operador = rs.getString("nome");                  
                     
                     //Desabilitar os menus
                     tela.menu_posicao.setEnabled(false);

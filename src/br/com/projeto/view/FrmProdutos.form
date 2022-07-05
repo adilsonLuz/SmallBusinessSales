@@ -36,7 +36,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanel1" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Component id="jTabbedPane1" max="32767" attributes="0"/>
+                      <Component id="jTabbedPane1" pref="734" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -894,7 +894,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="btGerarEan13">
           <Properties>
-            <Property name="text" type="java.lang.String" value="GERAR EAN13"/>
+            <Property name="text" type="java.lang.String" value="GERAR DIG VERIF"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
           <Events>

@@ -12,6 +12,7 @@ import br.com.projeto.model.Produtos;
 import br.com.projeto.model.Fornecedores;
 import java.awt.AlphaComposite;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
@@ -33,6 +34,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.AttributeSet;
 import net.sourceforge.barbecue.Barcode;
 import net.sourceforge.barbecue.BarcodeException;
 import net.sourceforge.barbecue.BarcodeFactory;
@@ -609,7 +611,7 @@ public class FrmProdutos extends javax.swing.JFrame {
             }
         });
 
-        btGerarEan13.setText("GERAR EAN13");
+        btGerarEan13.setText("GERAR DIG VERIF");
         btGerarEan13.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btGerarEan13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -664,7 +666,7 @@ public class FrmProdutos extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTabbedPane1)
+                        .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())))
@@ -689,7 +691,7 @@ public class FrmProdutos extends javax.swing.JFrame {
 
         try {
             //gerando cópdigo de Barras
-            Barcode barcode = BarcodeFactory.createEAN13(txtCodBarras.getText());
+            Barcode barcode = BarcodeFactory.createEAN128(txtCodBarras.getText());
             //imprimindo codigo de barras
             PrinterJob printerJob = PrinterJob.getPrinterJob();
             printerJob.setPrintable(barcode);
@@ -963,7 +965,14 @@ public class FrmProdutos extends javax.swing.JFrame {
 
             float lucro = ((precovenda - precocomprar) * 100) / precocomprar;
 
-            txtPercLucro.setText("" + lucro);
+            if(lucro <= 0){
+                txtPercLucro.setText("" + lucro);
+                txtPercLucro.setForeground(Color.red);
+                
+            }else{
+                txtPercLucro.setText("" + lucro);
+                txtPercLucro.setForeground(Color.black);
+            }
         }
 
     }//GEN-LAST:event_txtPrecoVendaKeyReleased
@@ -977,7 +986,14 @@ public class FrmProdutos extends javax.swing.JFrame {
 
             float lucro = ((precovenda - precocomprar) * 100) / precocomprar;
 
-            txtPercLucro.setText("" + lucro);
+                if(lucro <= 0){
+                txtPercLucro.setText("" + lucro);
+                txtPercLucro.setForeground(Color.red);
+                
+            }else{
+                txtPercLucro.setText("" + lucro);
+                txtPercLucro.setForeground(Color.black);
+            }                    
         }
     }//GEN-LAST:event_txtPrecoCompraKeyReleased
 

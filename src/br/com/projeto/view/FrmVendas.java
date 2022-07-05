@@ -278,7 +278,7 @@ public class FrmVendas extends javax.swing.JFrame {
             }
         });
 
-        btPesquisar.setText("Pesquisar");
+        btPesquisar.setText("Buscar");
         btPesquisar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btPesquisarActionPerformed(evt);
@@ -305,10 +305,14 @@ public class FrmVendas extends javax.swing.JFrame {
                 .addGroup(panelVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btAdicionar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelVendaLayout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtQtd)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCodBar)
-                        .addGap(24, 24, 24)
+                        .addComponent(txtCodBar, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btPesquisar))
                     .addGroup(panelVendaLayout.createSequentialGroup()
                         .addGroup(panelVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -320,26 +324,25 @@ public class FrmVendas extends javax.swing.JFrame {
                         .addGroup(panelVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(panelVendaLayout.createSequentialGroup()
                                 .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)
-                                .addComponent(jLabel10)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtQtd, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(txtProd))))
                 .addContainerGap())
             .addGroup(panelVendaLayout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(lbImagem, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         panelVendaLayout.setVerticalGroup(
             panelVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelVendaLayout.createSequentialGroup()
-                .addComponent(lbImagem, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+                .addComponent(lbImagem, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(txtCodBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btPesquisar))
+                    .addComponent(btPesquisar)
+                    .addComponent(jLabel10)
+                    .addComponent(txtQtd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
@@ -347,8 +350,6 @@ public class FrmVendas extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelVendaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jLabel10)
-                    .addComponent(txtQtd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPreco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btAdicionar)
@@ -448,10 +449,10 @@ public class FrmVendas extends javax.swing.JFrame {
         panelBarraStatus4Layout.setVerticalGroup(
             panelBarraStatus4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBarraStatus4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(lblUsuario4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel19)
-                .addComponent(lblDataHora4))
+                .addComponent(lblDataHora4)
+                .addComponent(lblUsuario4, javax.swing.GroupLayout.DEFAULT_SIZE, 16, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -502,17 +503,10 @@ public class FrmVendas extends javax.swing.JFrame {
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
 
         this.setExtendedState(this.MAXIMIZED_BOTH);
-
-        // Carrega data atual do sistema
-        Date agora = new Date();
-
-        SimpleDateFormat dataBr = new SimpleDateFormat("dd/MM/yyyy");
-        String dataFormatada = dataBr.format(agora);
-        txtData.setText(dataFormatada);
         Helpers help = new Helpers();
-        FrmMenu t = new FrmMenu();
-        lblUsuario4.setText(t.usuarioLogado);
+        lblUsuario4.setText(operador);
         lblDataHora4.setText(help.dataHoraBr());
+        this.setVisible(true);
 
     }//GEN-LAST:event_formWindowActivated
 
